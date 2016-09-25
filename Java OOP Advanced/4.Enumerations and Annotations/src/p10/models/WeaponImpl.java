@@ -32,7 +32,7 @@ public class WeaponImpl implements Weapon {
         this.gems = new LinkedList<>();
     }
 
-    private String getWeaponName() {
+    public String getWeaponName() {
         return weaponName;
     }
 
@@ -40,7 +40,7 @@ public class WeaponImpl implements Weapon {
         this.weaponName = weaponName;
     }
 
-    private WeaponType getWeaponType() {
+    public WeaponType getWeaponType() {
         return weaponType;
     }
 
@@ -48,7 +48,7 @@ public class WeaponImpl implements Weapon {
         this.weaponType = weaponType;
     }
 
-    private int getMinDamage() {
+    public int getMinDamage() {
         return minDamage;
     }
 
