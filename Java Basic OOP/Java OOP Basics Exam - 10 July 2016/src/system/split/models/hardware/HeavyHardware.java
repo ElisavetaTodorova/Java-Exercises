@@ -18,4 +18,5 @@ public class HeavyHardware extends Hardware {
     private void setMaximumMemory(int maximumMemory) {
         this.maximumMemory = (int) (maximumMemory - (maximumMemory * 0.75));
     }
+
 }

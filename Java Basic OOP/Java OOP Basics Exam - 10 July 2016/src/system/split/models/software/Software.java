@@ -7,11 +7,18 @@ import system.split.models.Component;
  */
 public abstract class Software extends Component {
 
-    protected int capacityConsumption;
-    protected int memoryConsumption;
+    int capacityConsumption;
+    int memoryConsumption;
 
-    protected Software(String name, String type) {
+    Software(String name, String type) {
         super(name, type);
     }
 
+    public int getCapacityConsumption() {
+        return capacityConsumption;
+    }
+
+    public int getMemoryConsumption() {
+        return memoryConsumption;
+    }
 }

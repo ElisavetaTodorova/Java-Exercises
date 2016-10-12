@@ -19,5 +19,4 @@ public class PowerHardware extends Hardware {
         this.maximumMemory = maximumMemory * 2;
     }
 
-
 }

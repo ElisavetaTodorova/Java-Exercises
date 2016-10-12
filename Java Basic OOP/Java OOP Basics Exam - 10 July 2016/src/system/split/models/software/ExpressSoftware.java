@@ -5,7 +5,7 @@ package system.split.models.software;
  */
 public class ExpressSoftware extends Software {
 
-    protected ExpressSoftware(String name, String type, int capacityConsumption,int memoryConsumption) {
+    public ExpressSoftware(String name, String type, int capacityConsumption, int memoryConsumption) {
         super(name, type);
         this.setCapacityConsumption(capacityConsumption);
         this.setMemoryConsumption(memoryConsumption);
