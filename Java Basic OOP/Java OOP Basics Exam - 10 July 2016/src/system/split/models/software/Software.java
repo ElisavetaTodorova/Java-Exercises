@@ -10,7 +10,7 @@ public abstract class Software extends Component {
     int capacityConsumption;
     int memoryConsumption;
 
-    Software(String name, String type) {
+    Software(String name,String type) {
         super(name, type);
     }
 
