@@ -22,7 +22,7 @@ public class System {
     private int totalCapacity;
     private int totalUsedCapacity;
 
-    private System() {
+    public System() {
         this.hardwareComponents = new HashMap<>();
         this.dump = new Dump();
         this.totalOperationMemory = 0;
@@ -33,14 +33,14 @@ public class System {
 
     private void calculateMemory() {
         for (Hardware hardware : hardwareComponents.values()) {
-            this.totalOperationMemory += hardware.getMaximumMemory();
+            this.totalOperationMemory += hardware.getMaximumMemory() - hardware.getCurrentMemoryUsage();
             this.totalUsedOperationMemory += hardware.getCurrentMemoryUsage();
         }
     }
 
     private void calculateCapacity() {
         for (Hardware hardware : hardwareComponents.values()) {
-            this.totalCapacity += hardware.getMaximumCapacity();
+            this.totalCapacity += hardware.getMaximumCapacity() - hardware.getCurrentCapacityUsage();
             this.totalUsedCapacity += hardware.getCurrentCapacityUsage();
         }
     }
@@ -85,9 +85,11 @@ public class System {
 
     public String analyze() {
         StringBuilder result = new StringBuilder();
+        this.calculateCapacity();
+        this.calculateMemory();
         result.append("System Analysis")
                 .append(java.lang.System.lineSeparator())
-                .append("  Hardware Components: ")
+                .append("Hardware Components: ")
                 .append(this.hardwareComponents.size())
                 .append(java.lang.System.lineSeparator())
                 .append("Software Components: ")
@@ -137,7 +139,7 @@ public class System {
                             .append(java.lang.System.lineSeparator())
                             .append("Memory Usage: ").append(hardwareComponent.getValue().getCurrentMemoryUsage())
                             .append(" / ")
-                            .append(hardwareComponent.getValue().getMaximumCapacity())
+                            .append(hardwareComponent.getValue().getMaximumMemory())
                             .append(java.lang.System.lineSeparator())
                             .append("Capacity Usage: ").append(hardwareComponent.getValue().getCurrentCapacityUsage())
                             .append(" / ").append(hardwareComponent.getValue().getMaximumCapacity())
@@ -146,7 +148,8 @@ public class System {
                             .append(java.lang.System.lineSeparator())
                             .append("Software Components: ");
                     if (hardwareComponent.getValue().getSoftwareComponentsCount() != 0) {
-                        result.append(String.join(", ",hardwareComponent.getValue().getAllSoftwareComponentsNames()));
+                        result.append(String.join(", ", hardwareComponent.getValue().getAllSoftwareComponentsNames()))
+                                .append(java.lang.System.lineSeparator());
                     } else {
                         result.append("None");
                     }
@@ -155,5 +158,21 @@ public class System {
         return result.toString();
     }
 
+    public Dump getDump() {
+        return dump;
+    }
 
+    public void dump(String hardwareComponentName) {
+        if(this.hardwareComponents.containsKey(hardwareComponentName)){
+            this.dump.dump(this.hardwareComponents.remove(hardwareComponentName));
+        }
+
+    }
+    public Hardware getHardwareComponentByName(String hardwareComponentName) {
+        Hardware hardware = null;
+        if (this.hardwareComponents.containsKey(hardwareComponentName)) {
+            hardware = this.hardwareComponents.get(hardwareComponentName);
+        }
+        return hardware;
+    }
 }

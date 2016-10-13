@@ -16,6 +16,6 @@ public class LightSoftware extends Software {
     }
 
     private void setMemoryConsumption(int memoryConsumption) {
-        this.memoryConsumption = (int) (memoryConsumption + (memoryConsumption * 0.5));
+        this.memoryConsumption = (int) (memoryConsumption - (memoryConsumption * 0.5));
     }
 }

@@ -6,17 +6,17 @@ package system.split.models.hardware;
 public class PowerHardware extends Hardware {
 
     public PowerHardware(String name, String type, int maximumCapacity, int maximumMemory) {
-        super(name,type);
+        super(name, type);
         this.setMaximumCapacity(maximumCapacity);
         this.setMaximumMemory(maximumMemory);
     }
 
     private void setMaximumCapacity(int maximumCapacity) {
-        this.maximumCapacity = (int) (maximumCapacity - (maximumCapacity * 0.25));
+        this.maximumCapacity = (int) (maximumCapacity - (maximumCapacity * 0.75));
     }
 
     private void setMaximumMemory(int maximumMemory) {
-        this.maximumMemory = maximumMemory * 2;
+        this.maximumMemory = (int) (maximumMemory + (maximumMemory * 0.75));
     }
 
 }

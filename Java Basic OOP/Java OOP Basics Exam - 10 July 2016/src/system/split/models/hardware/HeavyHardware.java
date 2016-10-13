@@ -12,11 +12,11 @@ public class HeavyHardware extends Hardware {
     }
 
     private void setMaximumCapacity(int maximumCapacity) {
-        this.maximumCapacity = (int) (maximumCapacity - (maximumCapacity * 0.75));
+        this.maximumCapacity = (int) (maximumCapacity - (maximumCapacity * 0.25));
     }
 
     private void setMaximumMemory(int maximumMemory) {
-        this.maximumMemory = (int) (maximumMemory - (maximumMemory * 0.75));
+        this.maximumMemory = maximumMemory * 2;
     }
 
 }

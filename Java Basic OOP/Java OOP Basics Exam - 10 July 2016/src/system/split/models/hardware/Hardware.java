@@ -28,7 +28,7 @@ public abstract class Hardware extends Component {
         int currentCapacity = this.currentCapacityUsage + software.getCapacityConsumption();
         int currentMemory = this.currentMemoryUsage + software.getMemoryConsumption();
 
-        if (currentCapacity <= this.maximumCapacity && currentMemory <= this.maximumCapacity) {
+        if (currentCapacity <= this.maximumCapacity && currentMemory <= this.maximumMemory) {
             this.softwareComponents.put(software.getName(), software);
             this.currentCapacityUsage += software.getCapacityConsumption();
             this.currentMemoryUsage += software.getMemoryConsumption();
