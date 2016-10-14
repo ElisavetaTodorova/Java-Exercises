@@ -14,9 +14,10 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
         InformationProcessor informationProcessor = new InformationProcessor();
+
         while (true) {
             String input = reader.readLine();
-            String result = null;
+            String result;
             if(input.equals("System Split")) {
                 result = informationProcessor.proceedInformation(input);
                 System.out.println(result);

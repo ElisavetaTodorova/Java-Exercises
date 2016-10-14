@@ -79,7 +79,7 @@ public abstract class Hardware extends Component {
         return result;
     }
 
-    public List<String> getAllSoftwareComponentsNames (){
+    public List<String> getAllSoftwareComponentsNames() {
         List<String> result = new LinkedList<>();
         for (String name : softwareComponents.keySet()) {
             result.add(name);
@@ -90,5 +90,4 @@ public abstract class Hardware extends Component {
     private boolean containsSoftwareComponent(String softwareComponentName) {
         return this.softwareComponents.containsKey(softwareComponentName);
     }
-
 }
