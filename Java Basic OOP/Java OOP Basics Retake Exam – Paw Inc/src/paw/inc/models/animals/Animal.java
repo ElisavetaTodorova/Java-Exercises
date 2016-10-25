@@ -1,4 +1,4 @@
-package paw.inc.models;
+package paw.inc.models.animals;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,8 +11,9 @@ public abstract class Animal {
     private String name;
     private int age;
     private boolean isClean;
+    private boolean isCastrated;
 
-    public Animal(String name, int age) {
+    protected Animal(String name, int age) {
         this.setName(name);
         this.setAge(age);
 
@@ -34,5 +35,9 @@ public abstract class Animal {
 
     public void clean() {
         this.isClean = true;
+    }
+
+    public void castrate() {
+        this.isCastrated = false;
     }
 }
