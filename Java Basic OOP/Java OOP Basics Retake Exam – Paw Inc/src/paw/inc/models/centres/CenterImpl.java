@@ -1,23 +1,28 @@
 package paw.inc.models.centres;
 
+import paw.inc.contracts.Center;
 import paw.inc.models.animals.Animal;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * Created by ELISAV on 26.10.2016 г..
  */
-public abstract class Center {
+public abstract class CenterImpl implements Center {
 
     private String name;
     private List<Animal> animals;
+    private Set<String> register;
 
-    protected Center(String name) {
+    protected CenterImpl(String name) {
         this.setName(name);
         this.animals = new LinkedList<>();
+        this.register = new TreeSet<>();
     }
 
     private void setName(String name) {
@@ -29,12 +34,13 @@ public abstract class Center {
         }
         this.name = name;
     }
-
-    protected List<Animal> getAnimals() {
+    @Override
+    public List<Animal> getAnimals() {
         return this.animals;
     }
 
-    protected void setAnimals(List<Animal> animals) {
-        this.animals = animals;
+    @Override
+    public Set<String> getRegister() {
+        return register;
     }
 }

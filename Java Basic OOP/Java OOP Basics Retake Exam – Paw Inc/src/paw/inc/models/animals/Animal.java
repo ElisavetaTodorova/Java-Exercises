@@ -1,12 +1,15 @@
 package paw.inc.models.animals;
 
+import paw.inc.contracts.Castrateble;
+import paw.inc.contracts.Cleanable;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * Created by ELISAV on 21.10.2016 г..
  */
-public abstract class Animal {
+public abstract class Animal implements Cleanable, Castrateble {
 
     private String name;
     private int age;
@@ -29,15 +32,27 @@ public abstract class Animal {
         this.name = name;
     }
 
-    private void setAge(int age) {
-        this.age = age;
-    }
-
+    @Override
     public void clean() {
         this.isClean = true;
     }
 
+    @Override
     public void castrate() {
-        this.isCastrated = false;
+        this.isCastrated = true;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public boolean getCleaningStatus(){
+        return this.isClean;
+    }
+
+    private void setAge(int age) {
+        this.age = age;
     }
 }
+
+

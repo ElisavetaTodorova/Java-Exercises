@@ -7,7 +7,9 @@ import java.util.List;
 /**
  * Created by ELISAV on 26.10.2016 г..
  */
-public interface Adoptable {
-    List<Animal> sentForCleaning();
-    void adopt();
+public interface CleaningCentre extends Center {
+
+    void receiveForCleansing(List<Animal> animals);
+
+    void clean();
 }
